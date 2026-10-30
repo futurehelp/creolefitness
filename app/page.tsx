@@ -29,6 +29,7 @@ export default function Home() {
       <nav className="nav wrap">
         <a className="wordmark" href="#top" aria-label="Creole Fitness home"><span>CREOLE</span><b>FITNESS</b></a>
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <a href="/iterations">4 directions</a>
           {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
           <a className="nav-cta" href="#contact">Book a session <ArrowUpRight size={16} /></a>
         </div>
