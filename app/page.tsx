@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Camera, Menu, Play, Sparkles, X } from "lucide-react";
 import { useState } from "react";
 
-const navItems = ["Home", "Classes", "Trainers", "Our story", "Contact"];
+const navItems = ["Home", "Classes", "Trainers", "Our story", "Page 2", "Page 3", "Page 4", "Contact"];
 const classes = [
   { title: "1:1 training", detail: "Personal plans, real accountability.", image: "/images/d2a8dd1293f2cce8.jpg", tone: "coral" },
   { title: "Small group", detail: "High energy. Better together.", image: "/images/8e143c9dafed209b.jpg", tone: "aqua" },
@@ -29,7 +29,7 @@ export default function Home() {
       <nav className="nav wrap">
         <a className="wordmark" href="#top" aria-label="Creole Fitness home"><span>CREOLE</span><b>FITNESS</b></a>
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
+          {navItems.map((item) => <a key={item} href={item.startsWith("Page ") ? `/${item.toLowerCase().replace(" ", "-")}` : `#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
           <a className="nav-cta" href="#contact">Book a session <ArrowUpRight size={16} /></a>
         </div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button>
