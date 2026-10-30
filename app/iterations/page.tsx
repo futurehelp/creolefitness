@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import "../iterations.css";
 
 const iterations = [
-  ["01", "THE EDITORIAL CLUB", "A quiet-luxury direction inspired by Equinox: black, bone, brass, and confident restraint.", "/"],
+  ["01", "THE EDITORIAL CLUB", "A quiet-luxury direction inspired by Equinox: black, bone, brass, and confident restraint.", "/page-1"],
   ["02", "THE MEMBERSHIP ENGINE", "A conversion-first studio experience built around paths, proof, and the first booking.", "/page-2"],
   ["03", "THE PERFORMANCE LAB", "A sharper athletic system for clients who want measurable progress and serious coaching.", "/page-3"],
   ["04", "THE DALLAS MOVEMENT", "A community-led direction with local energy, color, culture, and a clear next move.", "/page-4"],
