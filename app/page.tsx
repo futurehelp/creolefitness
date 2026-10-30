@@ -1,69 +1,60 @@
-import Image from "next/image";
+"use client";
+
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Camera, Menu, Play, Sparkles, X } from "lucide-react";
+import { useState } from "react";
+
+const navItems = ["Home", "Classes", "Trainers", "Our story", "Contact"];
+const classes = [
+  { title: "1:1 training", detail: "Personal plans, real accountability.", image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=85", tone: "coral" },
+  { title: "Small group", detail: "High energy. Better together.", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1000&q=85", tone: "aqua" },
+  { title: "Youth performance", detail: "Confidence that shows up.", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85", tone: "lime" },
+];
+const testimonials = [
+  ["Shari White", "Alex has already had a huge shift in his confidence, stamina, and overall fitness."],
+  ["Thomas Wheat", "Carll knows his stuff, works hard, and truly cares about his clients."],
+  ["Jason Kulas", "We have seen a tremendous improvement in agility, attitude, and strength."],
+];
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="site-shell">
+      <nav className="nav wrap">
+        <a className="wordmark" href="#top" aria-label="Creole Fitness home"><span>CREOLE</span><b>FITNESS</b></a>
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
+          <a className="nav-cta" href="#contact">Book a session <ArrowUpRight size={16} /></a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button>
+      </nav>
+
+      <section id="top" className="hero wrap">
+        <div className="hero-copy">
+          <motion.p className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }}>Feel good fitness <span>—</span> New Orleans energy</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75, delay: .1 }}>Your strongest<br /><em>self</em> starts here.</motion.h1>
+          <motion.p className="hero-lede" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .7, delay: .35 }}>Training that meets you where you are—and takes you somewhere new. Personal coaching, community, and a plan built around your life.</motion.p>
+          <motion.div className="hero-actions" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6, delay: .45 }}><a className="button button-dark" href="#contact">Start your transformation <ArrowUpRight size={18} /></a><a className="play-link" href="#story"><span className="play"><Play size={15} fill="currentColor" /></span> See how we move</a></motion.div>
+          <div className="hero-proof"><div className="avatar-stack"><span>CE</span><span>CF</span><span>+</span></div><p><strong>500+</strong> people moving<br />with purpose</p></div>
         </div>
-      </main>
-    </div>
+        <motion.div className="hero-visual" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9 }}><div className="hero-image" /><div className="hero-sticker"><Sparkles size={18} /><span>SHOW UP<br /><b>FOR YOU</b></span></div><div className="hero-tag"><span>01</span><span>Build strength<br />that lasts.</span></div></motion.div>
+      </section>
+
+      <section className="ticker"><div className="ticker-track">TRAIN WITH PURPOSE <span>✳</span> FEEL LIKE YOURSELF AGAIN <span>✳</span> CREOLE FITNESS <span>✳</span> TRAIN WITH PURPOSE <span>✳</span></div></section>
+
+      <section id="our-story" className="story wrap section-grid"><div className="section-kicker">01 / OUR APPROACH</div><div><h2>Fitness should feel<br /><span>like a win.</span></h2><p className="section-lede">A Haitian-Creole lifestyle is the foundation for Feel Good Fitness—a complete approach to health created by founder Carll Edouard. Wherever you are on your journey, we build the plan around you.</p><a className="text-link" href="#contact">Meet your future self <ArrowUpRight size={17} /></a></div><div className="approach-card"><div className="approach-photo" /><div className="approach-caption"><span>CARLL EDOUARD</span><b>Founder & CEO</b></div></div></section>
+
+      <section id="classes" className="classes-section"><div className="wrap"><div className="section-heading"><div><div className="section-kicker">02 / FIND YOUR FLOW</div><h2>Move your way.</h2></div><p>Different goals. Same good energy.<br />Find the room that fits you.</p></div><div className="class-grid">{classes.map((item, i) => <motion.a href="#contact" className={`class-card ${item.tone}`} key={item.title} whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 260 }}><div className="class-image" style={{ backgroundImage: `url(${item.image})` }} /><div className="class-overlay" /><div className="class-content"><span>0{i + 1}</span><h3>{item.title}</h3><p>{item.detail}</p><ArrowUpRight className="card-arrow" /></div></motion.a>)}</div></div></section>
+
+      <section id="trainers" className="trainers wrap"><div className="section-kicker">03 / THE CREW</div><div className="trainers-heading"><h2>Good people.<br /><span>Great coaches.</span></h2><p>We bring expertise, empathy, and a little bit of “you got this” to every session.</p></div><div className="trainer-row"><div className="trainer-portrait carll"><span>CARLL EDOUARD</span></div><div className="trainer-copy"><span className="role">FOUNDER / PERFORMANCE COACH</span><h3>We don&apos;t just train bodies.<br />We build <em>belief.</em></h3><p>From 1:1 training to youth performance, every program is designed to make progress feel possible—and make showing up your favorite part.</p><a className="button button-coral" href="#contact">Work with us <ArrowUpRight size={18} /></a></div></div></section>
+
+      <section className="community"><div className="wrap community-inner"><div><div className="section-kicker light">04 / THE WHY</div><h2>Strong bodies.<br /><em>Stronger community.</em></h2></div><div><p>Creole Fitness gives back because movement should open doors. We invest in youth sports, local programs, and the people who make this city move.</p><a className="text-link light-link" href="#contact">See our impact <ArrowUpRight size={17} /></a></div></div></section>
+
+      <section className="testimonials wrap"><div className="section-kicker">05 / GOOD WORDS</div><div className="testimonial-layout"><div><h2>The energy<br />is <span>real.</span></h2><div className="testimonial-controls"><button onClick={() => setActiveTestimonial((activeTestimonial + testimonials.length - 1) % testimonials.length)}>←</button><span>0{activeTestimonial + 1} / 03</span><button onClick={() => setActiveTestimonial((activeTestimonial + 1) % testimonials.length)}>→</button></div></div><AnimatePresence mode="wait"><motion.blockquote key={activeTestimonial} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: .35 }}><div className="quote-mark">“</div><p>{testimonials[activeTestimonial][1]}</p><cite>{testimonials[activeTestimonial][0]} <span>· Member</span></cite></motion.blockquote></AnimatePresence></div></section>
+
+      <section id="contact" className="contact wrap"><div className="contact-card"><div><div className="section-kicker light">READY WHEN YOU ARE</div><h2>Let&apos;s make<br /><em>good moves.</em></h2></div><div><p>Tell us a little about where you want to go. We&apos;ll help you find the best way to get there.</p><a className="button button-light" href="mailto:creolefitness1804@gmail.com">Book a session <ArrowUpRight size={18} /></a></div></div></section>
+      <footer className="footer wrap"><a className="wordmark" href="#top"><span>CREOLE</span><b>FITNESS</b></a><p>Feel good. Move forward.</p><div className="socials"><a href="https://instagram.com/creolefitness" aria-label="Instagram"><Camera size={18} /></a><a href="#contact">Contact <ArrowUpRight size={15} /></a></div></footer>
+    </main>
   );
 }
