@@ -1,0 +1,2 @@
+.selector-hero{min-height:560px}.selector-portrait{min-height:560px}.selector-copy{padding-top:64px;padding-bottom:64px}.directions{padding-top:72px}
+@media(max-width:700px){.selector-copy{padding:42px 22px 35px}.selector-copy h1{white-space:normal;font-size:clamp(58px,12vw,88px);margin:26px 0 22px}.selector-copy>p{font-size:16px}.scroll-cue{margin-top:28px}.selector-hero{min-height:0}.selector-portrait{min-height:220px}.directions{padding-top:50px}.brand-hero h1,.method-hero h1,.community-hero h1{overflow-wrap:anywhere}}

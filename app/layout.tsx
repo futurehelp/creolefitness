@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./showcase.css";
+import "./polish.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Creole Fitness — Feel Good Fitness",
-  description: "Personal training, community, and a plan built around your life.",
+  metadataBase: new URL("https://creolefitness.vercel.app"),
+  title: "Creole Fitness | Feels Good Fitness in Dallas",
+  description: "Personal coaching, small group training, and youth performance in Dallas, Texas. Feel good. Move forward.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
