@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const navItems = ["Home", "Classes", "Trainers", "Our story", "Contact"];
 const classes = [
-  { title: "1:1 training", detail: "Personal plans, real accountability.", image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=85", tone: "coral" },
-  { title: "Small group", detail: "High energy. Better together.", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1000&q=85", tone: "aqua" },
-  { title: "Youth performance", detail: "Confidence that shows up.", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1000&q=85", tone: "lime" },
+  { title: "1:1 training", detail: "Personal plans, real accountability.", image: "/images/d2a8dd1293f2cce8.jpg", tone: "coral" },
+  { title: "Small group", detail: "High energy. Better together.", image: "/images/8e143c9dafed209b.jpg", tone: "aqua" },
+  { title: "Youth performance", detail: "Confidence that shows up.", image: "/images/08c3eb115686b7fa.jpg", tone: "lime" },
 ];
 const testimonials = [
   ["Shari White", "Alex has already had a huge shift in his confidence, stamina, and overall fitness."],
@@ -32,7 +32,7 @@ export default function Home() {
 
       <section id="top" className="hero wrap">
         <div className="hero-copy">
-          <motion.p className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }}>Feel good fitness <span>—</span> New Orleans energy</motion.p>
+          <motion.p className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }}>Feel good fitness <span>—</span> Dallas energy</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75, delay: .1 }}>Your strongest<br /><em>self</em> starts here.</motion.h1>
           <motion.p className="hero-lede" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .7, delay: .35 }}>Training that meets you where you are—and takes you somewhere new. Personal coaching, community, and a plan built around your life.</motion.p>
           <motion.div className="hero-actions" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6, delay: .45 }}><a className="button button-dark" href="#contact">Start your transformation <ArrowUpRight size={18} /></a><a className="play-link" href="#story"><span className="play"><Play size={15} fill="currentColor" /></span> See how we move</a></motion.div>
