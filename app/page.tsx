@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Camera, Menu, Play, Sparkles, X } from "lucide-react";
 import { useState } from "react";
 
-const navItems = ["Home", "Classes", "Trainers", "Our story", "Page 2", "Page 3", "Page 4", "Contact"];
+const navItems = ["Home", "Classes", "Trainers", "Our story", "Contact"];
 const classes = [
   { title: "1:1 training", detail: "Personal plans, real accountability.", image: "/images/d2a8dd1293f2cce8.jpg", tone: "coral" },
   { title: "Small group", detail: "High energy. Better together.", image: "/images/8e143c9dafed209b.jpg", tone: "aqua" },
@@ -29,12 +29,12 @@ export default function Home() {
       <nav className="nav wrap">
         <a className="wordmark" href="#top" aria-label="Creole Fitness home"><span>CREOLE</span><b>FITNESS</b></a>
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {navItems.map((item) => <a key={item} href={item.startsWith("Page ") ? `/${item.toLowerCase().replace(" ", "-")}` : `#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
+          {navItems.map((item) => <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
           <a className="nav-cta" href="#contact">Book a session <ArrowUpRight size={16} /></a>
         </div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button>
       </nav>
-      <div className="page-switcher wrap"><span>CLIENT PREVIEW</span><a className="active" href="/">01 Brand</a><a href="/page-2">02 Offer</a><a href="/page-3">03 Method</a><a href="/page-4">04 Next move</a></div>
+      <section className="landing-hub wrap"><div className="section-kicker">CREOLE FITNESS / CLIENT PREVIEW</div><h1>Choose the<br /><em>experience.</em></h1><p>Four pages. One complete fitness story for Dallas.</p><div className="landing-card-grid"><a className="landing-card landing-card-one" href="/"><span>01 / BRAND</span><h2>Feel good fitness</h2><b>Open Page 1 <ArrowUpRight size={16}/></b></a><a className="landing-card landing-card-two" href="/page-2"><span>02 / OFFER</span><h2>Choose your path</h2><b>Open Page 2 <ArrowUpRight size={16}/></b></a><a className="landing-card landing-card-three" href="/page-3"><span>03 / METHOD</span><h2>Progress is personal</h2><b>Open Page 3 <ArrowUpRight size={16}/></b></a><a className="landing-card landing-card-four" href="/page-4"><span>04 / NEXT MOVE</span><h2>Make it count</h2><b>Open Page 4 <ArrowUpRight size={16}/></b></a></div></section>
 
       <section id="top" className="hero wrap">
         <div className="hero-copy">
@@ -51,7 +51,6 @@ export default function Home() {
 
       <section className="proof-strip"><div className="wrap proof-grid"><div><strong>500+</strong><span>people coached</span></div><div><strong>1:1</strong><span>attention, every plan</span></div><div><strong>Dallas</strong><span>built for this community</span></div><a href="#contact">Claim your first session <ArrowUpRight size={16} /></a></div></section>
 
-      <section className="page-hub wrap"><div className="section-kicker">THE CLIENT PREVIEW</div><div className="page-hub-heading"><h2>Explore the<br /><span>four-page story.</span></h2><p>Start with the brand, then click through the offer, method, and next move.</p></div><div className="page-hub-grid"><a className="hub-card hub-one" href="/"><span>01 / BRAND</span><h3>Feel good fitness</h3><b>Start here <ArrowUpRight size={16} /></b></a><a className="hub-card hub-two" href="/page-2"><span>02 / OFFER</span><h3>Choose your path</h3><b>Explore page 2 <ArrowUpRight size={16} /></b></a><a className="hub-card hub-three" href="/page-3"><span>03 / METHOD</span><h3>Progress is personal</h3><b>Explore page 3 <ArrowUpRight size={16} /></b></a><a className="hub-card hub-four" href="/page-4"><span>04 / CTA</span><h3>Make it count</h3><b>Explore page 4 <ArrowUpRight size={16} /></b></a></div></section>
 
       <section id="our-story" className="story wrap section-grid"><div className="section-kicker">01 / OUR APPROACH</div><div><h2>Fitness should feel<br /><span>like a win.</span></h2><p className="section-lede">A Haitian-Creole lifestyle is the foundation for Feel Good Fitness—a complete approach to health created by founder Carll Edouard. Wherever you are on your journey, we build the plan around you.</p><a className="text-link" href="#contact">Meet your future self <ArrowUpRight size={17} /></a></div><div className="approach-card"><div className="approach-photo" /><div className="approach-caption"><span>CARLL EDOUARD</span><b>Founder & CEO</b></div></div></section>
 
