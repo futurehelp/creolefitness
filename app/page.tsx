@@ -34,6 +34,7 @@ export default function Home() {
         </div>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button>
       </nav>
+      <div className="page-switcher wrap"><span>CLIENT PREVIEW</span><a className="active" href="/">01 Brand</a><a href="/page-2">02 Offer</a><a href="/page-3">03 Method</a><a href="/page-4">04 Next move</a></div>
 
       <section id="top" className="hero wrap">
         <div className="hero-copy">
