@@ -1,0 +1,9 @@
+/* Landing page is the client-facing selector, not the long-form homepage. */
+.site-shell>.hero,.site-shell>.ticker,.site-shell>.proof-strip,.site-shell>.story,.site-shell>.classes-section,.site-shell>.offers,.site-shell>.trainers,.site-shell>.community,.site-shell>.testimonials,.site-shell>.contact,.site-shell>.footer{display:none!important}
+.landing-hub{background:#111!important;color:#f4f1ea!important;padding-top:110px!important;min-height:calc(100vh - 82px)}
+.landing-hub:before{color:#1b1b1a!important}.landing-hub>h1{font-size:clamp(66px,10vw,138px)!important;letter-spacing:-.09em!important;text-transform:uppercase!important}.landing-hub>h1 em{color:#d8df72!important}.landing-hub>p{color:#a9a59c!important;max-width:470px!important}
+.landing-card-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:1px!important;background:#5b5952!important;transform:none!important;filter:none!important}
+.landing-card,.landing-card-one,.landing-card-two,.landing-card-three,.landing-card-four{background:#171716!important;color:#f4f1ea!important;border:0!important;border-radius:0!important;min-height:390px!important;transform:none!important}
+.landing-card:before{background:linear-gradient(180deg,rgba(10,10,10,.12),rgba(10,10,10,.9))!important}.landing-card:after{filter:grayscale(1) brightness(.68)!important}.landing-card:hover{transform:translateY(-12px)!important}.landing-card:hover:after{filter:grayscale(.15) brightness(.78)!important}.landing-card h2{font-size:clamp(27px,2.8vw,43px)!important;color:#f4f1ea!important}.landing-card span{color:#d8df72!important}.landing-card b{color:#f4f1ea!important}
+@media(max-width:850px){.landing-hub{padding-top:75px!important;min-height:0}.landing-card-grid{grid-template-columns:1fr 1fr!important}.landing-card{min-height:270px!important}}
+@media(max-width:520px){.landing-card-grid{grid-template-columns:1fr!important}}
