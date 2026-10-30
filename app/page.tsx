@@ -15,6 +15,11 @@ const testimonials = [
   ["Thomas Wheat", "Carll knows his stuff, works hard, and truly cares about his clients."],
   ["Jason Kulas", "We have seen a tremendous improvement in agility, attitude, and strength."],
 ];
+const offers = [
+  ["01", "Start strong", "A focused intro session to map your goals, movement, and next best step."],
+  ["02", "Build momentum", "Personal coaching and small-group energy for a plan you can actually keep."],
+  ["03", "Perform better", "Youth performance and athletic development built around confidence."],
+];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,9 +48,13 @@ export default function Home() {
 
       <section className="ticker"><div className="ticker-track">TRAIN WITH PURPOSE <span>✳</span> FEEL LIKE YOURSELF AGAIN <span>✳</span> CREOLE FITNESS <span>✳</span> TRAIN WITH PURPOSE <span>✳</span></div></section>
 
+      <section className="proof-strip"><div className="wrap proof-grid"><div><strong>500+</strong><span>people coached</span></div><div><strong>1:1</strong><span>attention, every plan</span></div><div><strong>Dallas</strong><span>built for this community</span></div><a href="#contact">Claim your first session <ArrowUpRight size={16} /></a></div></section>
+
       <section id="our-story" className="story wrap section-grid"><div className="section-kicker">01 / OUR APPROACH</div><div><h2>Fitness should feel<br /><span>like a win.</span></h2><p className="section-lede">A Haitian-Creole lifestyle is the foundation for Feel Good Fitness—a complete approach to health created by founder Carll Edouard. Wherever you are on your journey, we build the plan around you.</p><a className="text-link" href="#contact">Meet your future self <ArrowUpRight size={17} /></a></div><div className="approach-card"><div className="approach-photo" /><div className="approach-caption"><span>CARLL EDOUARD</span><b>Founder & CEO</b></div></div></section>
 
       <section id="classes" className="classes-section"><div className="wrap"><div className="section-heading"><div><div className="section-kicker">02 / FIND YOUR FLOW</div><h2>Move your way.</h2></div><p>Different goals. Same good energy.<br />Find the room that fits you.</p></div><div className="class-grid">{classes.map((item, i) => <motion.a href="#contact" className={`class-card ${item.tone}`} key={item.title} whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 260 }}><div className="class-image" style={{ backgroundImage: `url(${item.image})` }} /><div className="class-overlay" /><div className="class-content"><span>0{i + 1}</span><h3>{item.title}</h3><p>{item.detail}</p><ArrowUpRight className="card-arrow" /></div></motion.a>)}</div></div></section>
+
+      <section className="offers wrap"><div className="section-kicker">02.5 / PICK YOUR STARTING LINE</div><div className="offers-heading"><h2>There&apos;s a way in<br /><span>for everyone.</span></h2><p>No pressure. No one-size-fits-all. Just a clear next move.</p></div><div className="offer-list">{offers.map(([number, title, detail]) => <a className="offer-row" href="#contact" key={number}><span className="offer-number">{number}</span><h3>{title}</h3><p>{detail}</p><ArrowUpRight className="offer-arrow" /></a>)}</div></section>
 
       <section id="trainers" className="trainers wrap"><div className="section-kicker">03 / THE CREW</div><div className="trainers-heading"><h2>Good people.<br /><span>Great coaches.</span></h2><p>We bring expertise, empathy, and a little bit of “you got this” to every session.</p></div><div className="trainer-row"><div className="trainer-portrait carll"><span>CARLL EDOUARD</span></div><div className="trainer-copy"><span className="role">FOUNDER / PERFORMANCE COACH</span><h3>We don&apos;t just train bodies.<br />We build <em>belief.</em></h3><p>From 1:1 training to youth performance, every program is designed to make progress feel possible—and make showing up your favorite part.</p><a className="button button-coral" href="#contact">Work with us <ArrowUpRight size={18} /></a></div></div></section>
 
